@@ -1,14 +1,13 @@
 package com.foodtruck.api.service;
 
 import static java.util.function.Predicate.not;
+import static java.util.stream.Collectors.toSet;
 
 import com.foodtruck.api.model.FoodTruck;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
@@ -51,8 +50,8 @@ public class LoadDataService {
                 .address(values[ADDRESS_INDEX])
                 .status(values[STATUS_INDEX])
                 .foodItems(parseFoodItems(values[FOOD_ITEMS_INDEX]))
-                .latitude(values[LATITUDE_INDEX])
-                .longitude(values[LONGITUDE_INDEX])
+                .latitude(parseDouble(values[LATITUDE_INDEX]))
+                .longitude(parseDouble(values[LONGITUDE_INDEX]))
                 .schedule(values[SCHEDULE_INDEX])
                 .daysHours(values[DAYS_HOURS_INDEX])
                 .build();
@@ -62,15 +61,21 @@ public class LoadDataService {
     return foodTrucks;
   }
 
-  private List<String> parseFoodItems(String value) {
+  private Set<String> parseFoodItems(String value) {
     if (value.isBlank()) {
-      return List.of();
+      return Set.of();
     }
     String[] foodItems = value.split(":");
-    return Arrays.stream(foodItems)
-        .filter(not(String::isBlank))
-        .map(String::trim)
-        .distinct()
-        .toList();
+    return Arrays.stream(foodItems).filter(not(String::isBlank)).map(String::trim).collect(toSet());
+  }
+
+  private static Double parseDouble(String value) {
+    if (Objects.isNull(value)) {
+      return null;
+    }
+    if (value.isBlank()) {
+      return null;
+    }
+    return Double.parseDouble(value);
   }
 }

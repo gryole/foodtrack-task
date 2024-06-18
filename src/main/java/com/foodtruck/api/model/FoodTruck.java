@@ -1,6 +1,6 @@
 package com.foodtruck.api.model;
 
-import java.util.List;
+import java.util.Set;
 import lombok.Builder;
 
 @Builder
@@ -11,8 +11,8 @@ public record FoodTruck(
     String locationDescription,
     String address,
     String status,
-    List<String> foodItems,
-    String latitude,
-    String longitude,
+    Set<String> foodItems,
+    Double latitude,
+    Double longitude,
     String schedule,
     String daysHours) {}
