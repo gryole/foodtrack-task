@@ -32,7 +32,7 @@ class LoadDataServiceTest {
                 .locationDescription("MARKET ST: DRUMM ST intersection")
                 .address("5 THE EMBARCADERO")
                 .status("REQUESTED")
-                .foodItems("South American/Peruvian food")
+                .foodItems(List.of("South American/Peruvian food"))
                 .latitude("37.7943310032468")
                 .longitude("-122.395811053023")
                 .schedule(
