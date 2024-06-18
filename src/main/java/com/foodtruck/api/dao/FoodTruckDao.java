@@ -28,17 +28,6 @@ public class FoodTruckDao {
     return List.copyOf(data);
   }
 
-  public List<String> getAllFacilityTypes() {
-    return data.stream()
-        .parallel()
-        .map(FoodTruck::facilityType)
-        .distinct()
-        .filter(Objects::nonNull)
-        .filter(not(String::isBlank))
-        .sorted()
-        .toList();
-  }
-
   public List<String> getAllFoodItems() {
     return data.stream()
         .parallel()

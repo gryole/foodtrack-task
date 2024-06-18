@@ -24,11 +24,6 @@ public class FoodTruckController {
     return ResponseEntity.ok(foodTruckDao.getAll());
   }
 
-  @GetMapping("/foodtrucks/facilityTypes")
-  public ResponseEntity<List<String>> getAllFacilityTypes() {
-    return ResponseEntity.ok(foodTruckDao.getAllFacilityTypes());
-  }
-
   @GetMapping("/foodtrucks/foodItems")
   public ResponseEntity<List<String>> getFoodItems() {
     return ResponseEntity.ok(foodTruckDao.getAllFoodItems());

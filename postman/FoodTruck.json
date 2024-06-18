@@ -1,0 +1,36 @@
+{
+  "info": {
+    "name": "FoodTruck",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "/foodItems",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/foodtrucks/foodItems"
+      }
+    },
+    {
+      "name": "/foodtrucks",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/foodtrucks"
+      }
+    },
+    {
+      "name": "/search",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/foodtrucks/search?foodItems=Fried Fish&foodItems=Greens&applicant=Reecees&latitude=37.74530890865633&longitude=-122.40342005999852&radiusKm=0.1"
+      }
+    }
+  ],
+  "variable": []
+}
