@@ -1,6 +1,6 @@
 package com.foodtruck.api.service;
 
-import com.foodtruck.api.model.FoodTrack;
+import com.foodtruck.api.model.FoodTruck;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,12 +26,12 @@ public class LoadDataService {
   public static final int SCHEDULE_INDEX = 16;
   public static final int DAYS_HOURS_INDEX = 17;
 
-  @Value("${foodtrack.dataFile}")
+  @Value("${foodtruck.dataFile}")
   private String dataFile;
 
   @SneakyThrows
-  public List<FoodTrack> parseData() {
-    List<FoodTrack> foodTracks = new ArrayList<>();
+  public List<FoodTruck> parseData() {
+    List<FoodTruck> foodTrucks = new ArrayList<>();
     InputStream resource = new ClassPathResource(dataFile).getInputStream();
     try (BufferedReader br = new BufferedReader(new InputStreamReader(resource))) {
       // Skip first line with header
@@ -39,8 +39,8 @@ public class LoadDataService {
       String line;
       while ((line = br.readLine()) != null) {
         String[] values = line.split(COMMA_DELIMITER);
-        FoodTrack foodTrack =
-            FoodTrack.builder()
+        FoodTruck foodTruck =
+            FoodTruck.builder()
                 .locationId(values[LOCATION_ID_INDEX])
                 .applicant(values[APPLICANT_INDEX])
                 .facilityType(values[FACILITY_TYPE_INDEX])
@@ -53,9 +53,9 @@ public class LoadDataService {
                 .schedule(values[SCHEDULE_INDEX])
                 .daysHours(values[DAYS_HOURS_INDEX])
                 .build();
-        foodTracks.add(foodTrack);
+        foodTrucks.add(foodTruck);
       }
     }
-    return foodTracks;
+    return foodTrucks;
   }
 }

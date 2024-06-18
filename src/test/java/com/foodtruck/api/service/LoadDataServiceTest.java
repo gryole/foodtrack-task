@@ -2,7 +2,7 @@ package com.foodtruck.api.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.foodtruck.api.model.FoodTrack;
+import com.foodtruck.api.model.FoodTruck;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,11 +21,11 @@ class LoadDataServiceTest {
 
   @Test
   void shouldParseData() {
-    List<FoodTrack> foodTracks = loadDataService.parseData();
+    List<FoodTruck> foodTrucks = loadDataService.parseData();
 
-    assertThat(foodTracks)
+    assertThat(foodTrucks)
         .contains(
-            FoodTrack.builder()
+            FoodTruck.builder()
                 .locationId("735318")
                 .applicant("Ziaurehman Amini")
                 .facilityType("Push Cart")

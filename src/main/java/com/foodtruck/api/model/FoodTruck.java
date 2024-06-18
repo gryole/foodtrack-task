@@ -3,7 +3,7 @@ package com.foodtruck.api.model;
 import lombok.Builder;
 
 @Builder
-public record FoodTrack(
+public record FoodTruck(
     String locationId,
     String applicant,
     String facilityType,

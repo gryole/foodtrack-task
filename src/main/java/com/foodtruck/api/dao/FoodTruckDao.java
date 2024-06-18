@@ -1,6 +1,6 @@
 package com.foodtruck.api.dao;
 
-import com.foodtruck.api.model.FoodTrack;
+import com.foodtruck.api.model.FoodTruck;
 import com.foodtruck.api.service.LoadDataService;
 import jakarta.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class FoodTrackDao {
+public class FoodTruckDao {
   private final LoadDataService loadDataService;
-  private List<FoodTrack> data = new ArrayList<>();
+  private List<FoodTruck> data = new ArrayList<>();
 
   @PostConstruct
   public void init() {
